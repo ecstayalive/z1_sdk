@@ -13,7 +13,7 @@ public:
     ArmModel(Vec3 endPosLocal, double endEffectorMass, Vec3 endEffectorCom, Mat3 endEffectorInertia);
     ~ArmModel(){};
 
-    
+
 /*
  * Function: compute end effector frame (used for current spatial position calculation)
  * Inputs: q: current joint angles
@@ -32,8 +32,8 @@ HomoMat forwardKinematics(Vec6 q, int index = 6);
  *         qPast: An initial guess and result output of joint angles that are close to
  *                satisfying TDes
  *         checkInWorkSpace: whether q_result shoule be around qPast
- *                 eaxmple: there is a postion defined by q_temp which is within the C-space 
- *                          if qPast == Vec6::Zero(), 
+ *                 eaxmple: there is a postion defined by q_temp which is within the C-space
+ *                          if qPast == Vec6::Zero(),
  *                          the function will return false while checkInWorkSpace is false,
  *                          and return true while checkInWorkSpace is true.
  *                          Normally, you can use qPast = Vec6::Zero() and checkInWorkSpace == true
@@ -80,7 +80,7 @@ std::vector<double> getJointSpeedMax() {return _jointSpeedMax;}
 
 
 /*
- * Function: The load is applied to the end joint in equal proportion 
+ * Function: The load is applied to the end joint in equal proportion
              and caculates the correspoding dynamic parameters
  * Inputs: load: unit:kg, set in z1_controller/config/config.xml
  * Returns: None
@@ -139,8 +139,8 @@ bool checkInSingularity(Vec6 q);
  *         qPast: An initial guess and result output of joint angles that are close to
  *                satisfying TDes
  *         checkInWorkSpace: whether q_result shoule be around qPast
- *                 eaxmple: there is a postion defined by q_temp which is within the C-space 
- *                          if qPast == Vec6::Zero(), 
+ *                 eaxmple: there is a postion defined by q_temp which is within the C-space
+ *                          if qPast == Vec6::Zero(),
  *                          the function will return false while checkInWorkSpace is false,
  *                          and return true while checkInWorkSpace is true.
  *                          Normally, you can use qPast = Vec6::Zero() and checkInWorkSpace = true
@@ -154,7 +154,7 @@ bool inverseKinematics(HomoMat TDes, Vec6 qPast, Eigen::Ref<Vec6> q_result, bool
 
 
 /*
- * Function: The function use quadprog++ to slove equation: qd = J.inverse() * twist, even if J has no inverse 
+ * Function: The function use quadprog++ to slove equation: qd = J.inverse() * twist, even if J has no inverse
  * Inputs: twist: spatial velocity [R_dot, p_dot]
  *         qPast: current joint angles
  *         dt : compute period
